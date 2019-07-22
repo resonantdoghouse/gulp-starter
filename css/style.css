@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background: white;
+    color: color;
+}

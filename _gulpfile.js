@@ -3,35 +3,21 @@ const gulp = require("gulp"),
   rename = require("gulp-rename"),
   browserSync = require("browser-sync"),
   cssnano = require("gulp-cssnano"),
-  autoprefixer = require("gulp-autoprefixer"),
-  eslint = require("gulp-eslint");
+  autoprefixer = require("gulp-autoprefixer");
 
 gulp.task("watch", function() {
   gulp.watch("js/*.js", gulp.series("scripts"));
   gulp.watch("css/*.css", gulp.series("styles"));
-  gulp.watch("*.html").on("change", browserSync.reload);
+  gulp.watch("*.html", gulp.series("styles")).on("change", browserSync.reload);
 });
 
-gulp.task("lint", function() {
-    return (
-        gulp
-            .src('./js/*.js')
-            .pipe(eslint())
-            .pipe(eslint.format())
-            .pipe(eslint.failAfterError())
-    );
+gulp.task("scripts", function() {
+  return gulp
+    .src("./js/*.js")
+    .pipe(terser())
+    .pipe(rename({ extname: ".min.js" }))
+    .pipe(gulp.dest("./build/js"));
 });
-
-gulp.task("scripts", 
-    gulp.series('lint', 
-        function() {
-            return gulp
-                .src("./js/*.js")
-                .pipe(terser())
-                .pipe(rename({ extname: ".min.js" }))
-                .pipe(gulp.dest("./build/js"));
-        })    
-);
 
 gulp.task("styles", function() {
   return gulp
