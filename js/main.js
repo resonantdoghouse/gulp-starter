@@ -1,7 +1,5 @@
-console.log("hello world!!!");
+import { test }  from './partials/test';
 
-function sayHello(){
-    return "Hello World";
-}
+console.log('hello');
 
-alert("hello world");
+console.log(test);

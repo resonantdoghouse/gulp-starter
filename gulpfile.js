@@ -5,7 +5,8 @@ const gulp = require('gulp'),
   cssnano = require('gulp-cssnano'),
   autoprefixer = require('gulp-autoprefixer'),
   eslint = require('gulp-eslint'),
-  pug = require('gulp-pug');
+  pug = require('gulp-pug'),
+  webpack = require('webpack-stream');
 
 gulp.task('watch', function() {
   gulp.watch('js/*.js', gulp.series('scripts'));
@@ -21,16 +22,32 @@ gulp.task('lint', function() {
     .pipe(eslint.failAfterError());
 });
 
+
+
 gulp.task(
   'scripts',
   gulp.series('lint', function() {
     return gulp
       .src('./js/*.js')
-      .pipe(terser())
-      .pipe(rename({ extname: '.min.js' }))
+      .pipe(webpack({
+        output: {
+          filename: 'bundle.js',
+        }
+      }))
       .pipe(gulp.dest('./build/js'));
   })
 );
+
+// gulp.task(
+//   'scripts',
+//   gulp.series('lint', function() {
+//     return gulp
+//       .src('./js/*.js')
+//       .pipe(terser())
+//       .pipe(rename({ extname: '.min.js' }))
+//       .pipe(gulp.dest('./build/js'));
+//   })
+// );
 
 gulp.task('styles', function() {
   return gulp
