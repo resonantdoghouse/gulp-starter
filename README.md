@@ -11,6 +11,11 @@ A simple starter for using gulp to help automate development tasks.
 - pug for html templating
 - CSS autoprefixing
 
+## Setup
+
+Download or clone this repo, run `npm install` in the downloaded folder.
+If all goes swimmingly then try running the gulp tasks below.
+
 ## Gulp Tasks
 
 ```
