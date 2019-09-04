@@ -18,10 +18,10 @@ If all goes swimmingly then try running the gulp tasks below.
 
 ## Gulp Tasks
 
-```
-gulp // will launch browersync and watch for file changes
-gulp scripts // will compile and minify js files
-gulp styles // will minify and autoprefix css
-gulp pug // will comile pug templates into html
-gulp webpack // will create a bundle.js however you will need to update index.html to link to this.
+```sh
+gulp # will launch browersync and watch for file changes
+gulp scripts # will compile and minify js files
+gulp styles # will minify and autoprefix css
+gulp pug # will comile pug templates into html
+gulp webpack # will create a bundle.js however you will need to update index.html to link to this.
 ```
