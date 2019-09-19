@@ -9,9 +9,10 @@ const gulp = require("gulp"),
   webpack = require("webpack-stream");
 
 gulp.task("watch", function() {
-  gulp.watch("js/*.js", gulp.series("scripts"));
-  gulp.watch("css/*.css", gulp.series("styles"));
-  gulp.watch("*.pug", gulp.series("pug")).on("change", browserSync.reload);
+  // gulp.watch("js/*.js", gulp.series("scripts"));
+  // gulp.watch("css/*.css", gulp.series("styles"));
+  gulp.watch("js/*.js", gulp.series("webpack"));
+  // gulp.watch("*.pug", gulp.series("pug")).on("change", browserSync.reload);
 });
 
 gulp.task("lint", function() {
@@ -63,22 +64,22 @@ gulp.task("styles", function() {
     .pipe(gulp.dest("./build/css"));
 });
 
-gulp.task("pug", function buildHTML() {
-  return gulp
-    .src("*.pug")
-    .pipe(
-      data(function(file) {
-        return JSON.parse(fs.readFileSync("./project.json"));
-      })
-    )
-    .pipe(
-      pug({
-        pretty: true
-        // pug config options here.
-      })
-    )
-    .pipe(gulp.dest(""));
-});
+// gulp.task("pug", function buildHTML() {
+//   return gulp
+//     .src("*.pug")
+//     .pipe(
+//       data(function(file) {
+//         return JSON.parse(fs.readFileSync("./project.json"));
+//       })
+//     )
+//     .pipe(
+//       pug({
+//         pretty: true
+//         // pug config options here.
+//       })
+//     )
+//     .pipe(gulp.dest(""));
+// });
 
 gulp.task("browser-sync", function() {
   browserSync.init({
@@ -88,7 +89,7 @@ gulp.task("browser-sync", function() {
   });
 
   gulp
-    .watch(["build/css/*.css", "build/js/*.js"])
+    .watch(["*.html", "build/js/bundle.js", "build/css/*.css", "build/js/*.js"])
     .on("change", browserSync.reload);
 });
 
