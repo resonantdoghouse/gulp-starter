@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "echo \"hello\" && whoami",
+    "git-check": "git status",
+    "git-stage": "git add -A && git status",
+    "git-reset": "git reset"
   },
   "author": "",
   "license": "ISC",
