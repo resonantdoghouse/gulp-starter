@@ -1,5 +1,8 @@
-import { test }  from './partials/test';
+// import { test }  from './partials/test';
 
 console.log('hello');
 
-console.log(test);
+// console.log(test);
+
+// alert('this works?');
+
