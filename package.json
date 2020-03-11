@@ -1,11 +1,9 @@
 {
   "name": "gulp-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "gulp setup, scss browsersync webpack etc...",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "hello": "echo \"hello\" && whoami",
+    "start": "gulp",
     "git-check": "git status",
     "git-stage": "git add -A && git status",
     "git-reset": "git reset"

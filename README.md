@@ -24,6 +24,7 @@ Note that if you haven't installed gulp-cli you will need to add this first e.g.
 gulp # will launch browersync and watch for file changes
 gulp scripts # will compile and minify js files
 gulp styles # will minify and autoprefix css
+gulp scss # will process scss files
 gulp pug # will comile pug templates into html
 gulp webpack # will create a bundle.js however you will need to update index.html to link to this.
 ```
