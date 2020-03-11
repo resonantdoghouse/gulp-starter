@@ -18,6 +18,8 @@ If all goes swimmingly then try running the gulp tasks below.
 
 ## Gulp Tasks
 
+Note that if you haven't installed gulp-cli you will need to add this first e.g. `npm i -g gulp-cli`
+
 ```sh
 gulp # will launch browersync and watch for file changes
 gulp scripts # will compile and minify js files
